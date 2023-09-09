@@ -2,7 +2,11 @@ import getPlaceholder from "./getPlaceholder"
 
 export default async function fetchImages(url: string): Promise<ImagesResults | undefined> {
   try {
-    const res = await fetch(url, { headers: { Authorization: process.env.API_KEY as string } })
+    const res = await fetch(url, {
+      headers: { Authorization: process.env.API_KEY as string },
+      // Cada tanto cambian las imgs, cache por una hora
+      next: { revalidate: 3600 },
+    })
     if (!res.ok) {
       throw new Error("Response not Ok.")
     }

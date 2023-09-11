@@ -1,4 +1,4 @@
-import ImageCard from "@/app/ImageCard"
+import ImageCard from "@/app/components/ImageCard"
 import fetchImages from "@/lib/fetchImages"
 
 interface PageProps {

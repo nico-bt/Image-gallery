@@ -1,5 +1,5 @@
 import fetchImages from "@/lib/fetchImages"
-import ImageCard from "./ImageCard"
+import ImageCard from "./components/ImageCard"
 
 export default async function Home() {
   const imagesResults = await fetchImages(

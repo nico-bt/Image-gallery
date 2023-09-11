@@ -1,6 +1,5 @@
 import ImageCard from "@/app/ImageCard"
 import fetchImages from "@/lib/fetchImages"
-import Image from "next/image"
 
 interface PageProps {
   params: { search: string }
@@ -19,7 +18,9 @@ export function generateMetadata({ params: { search } }: PageProps) {
 }
 
 export default async function Home({ params: { search } }: PageProps) {
-  const imagesResults = await fetchImages(`https://api.pexels.com/v1/search?query=${search}`)
+  const imagesResults = await fetchImages(
+    `https://api.pexels.com/v1/search?query=${search}&per_page=26`
+  )
 
   if (imagesResults && imagesResults.photos.length === 0) {
     return <h2 className="m-4 text-3xl font-bold letter tracking-wider">No images found</h2>

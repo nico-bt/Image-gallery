@@ -9,6 +9,9 @@ export default function Search() {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    if (!search) {
+      return
+    }
     router.push(`/results/${search}`)
     setSearch("")
   }

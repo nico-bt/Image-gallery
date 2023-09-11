@@ -15,11 +15,11 @@ export default async function fetchImages(url: string): Promise<ImagesResults | 
 
     // Adding a blurDataURL as a base 64 to the ImagesResults array, enables showing a blur for the Image component on loading
     //--------------------------------------------------------------------------------------------------------------------------
-    const blurBase64PromisesArray = data.photos.map((img) => getPlaceholder(img.src.large))
+    // const blurBase64PromisesArray = data.photos.map((img) => getPlaceholder(img.src.large))
 
-    const blurBase64Array = await Promise.all(blurBase64PromisesArray)
+    // const blurBase64Array = await Promise.all(blurBase64PromisesArray)
 
-    data.photos.forEach((item, i) => (item.blurredDataUrl = blurBase64Array[i]))
+    // data.photos.forEach((item, i) => (item.blurredDataUrl = blurBase64Array[i]))
 
     return data
   } catch (error) {
